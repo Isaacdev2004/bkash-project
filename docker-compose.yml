@@ -1,0 +1,12 @@
+# Local MongoDB for the Express API (backend/.env MONGODB_URI)
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_dev_data:/data/db
+
+volumes:
+  mongo_dev_data:
