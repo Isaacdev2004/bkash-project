@@ -16,6 +16,7 @@ const apiLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   message: { success: false, message: 'Too many requests' },
+  skip: (req) => req.method === 'OPTIONS',
 });
 
 module.exports = { authLimiter, apiLimiter };

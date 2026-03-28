@@ -16,12 +16,29 @@ if (env.NODE_ENV === 'production') {
   app.set('trust proxy', 1);
 }
 
-app.use(helmet());
+/** Trailing slash breaks browser Origin match (e.g. https://app.vercel.app/ !== https://app.vercel.app) */
+function corsOrigins() {
+  const raw = env.CORS_ORIGIN || '*';
+  if (raw.trim() === '*') return '*';
+  return raw
+    .split(',')
+    .map((s) => s.trim().replace(/\/$/, ''))
+    .filter(Boolean);
+}
+
+const allowedOrigins = corsOrigins();
+
+app.use(
+  helmet({
+    crossOriginResourcePolicy: { policy: 'cross-origin' },
+  })
+);
 app.use(
   cors({
-    origin: env.CORS_ORIGIN === '*' ? true : env.CORS_ORIGIN.split(',').map((s) => s.trim()),
-    // Browsers reject credentials with wildcard origins
-    credentials: env.CORS_ORIGIN !== '*',
+    origin: allowedOrigins === '*' ? true : allowedOrigins,
+    credentials: allowedOrigins !== '*',
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   })
 );
 app.use(express.json({ limit: '24kb' }));
