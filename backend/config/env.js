@@ -11,8 +11,16 @@ function required(name) {
   return v;
 }
 
-const isMock = process.env.BKASH_USE_MOCK === 'true';
-const isSandbox = process.env.BKASH_SANDBOX === 'true' || process.env.NODE_ENV === 'test';
+/** true, 1, yes (case-insensitive) — Render/UI typos break strict === 'true' */
+function envFlag(name) {
+  const v = String(process.env[name] ?? '')
+    .trim()
+    .toLowerCase();
+  return v === 'true' || v === '1' || v === 'yes';
+}
+
+const isMock = envFlag('BKASH_USE_MOCK');
+const isSandbox = envFlag('BKASH_SANDBOX') || process.env.NODE_ENV === 'test';
 
 // Sandbox default matches bKash tokenized checkout docs (path includes version).
 const defaultSandboxBase = 'https://tokenized.sandbox.bka.sh/v1.2.0-beta';

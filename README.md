@@ -41,6 +41,10 @@ React (Vite) + Express + MongoDB + bKash tokenized checkout. The web app uses JW
 
 5. **Try it** — sign up, open **Make a Payment**, enter an amount, complete the redirect (mock or bKash), then confirm on `/pay/callback` and check the dashboard.
 
+## Deploy API (Render) + Vercel
+
+Step-by-step: **[docs/DEPLOY-RENDER.md](docs/DEPLOY-RENDER.md)** — MongoDB Atlas, Render Web Service (`backend` root), env vars, then set **`VITE_API_URL`** on Vercel and redeploy.
+
 ## App Store & Google Play
 
 Same React app, wrapped with **Capacitor** for native listing. See [docs/MOBILE-STORES.md](docs/MOBILE-STORES.md) for `cap add`, signing, and `VITE_API_URL` for production builds. Place the client logo at `public/brand/aurthayon-logo.png`.

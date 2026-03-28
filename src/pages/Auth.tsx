@@ -33,14 +33,14 @@ const Auth = () => {
           { method: "POST", body: JSON.stringify({ email, password }) }
         );
         setToken(data.token);
-        navigate("/dashboard");
+        navigate("/dashboard", { replace: true });
       } else {
         const data = await apiFetch<{ token: string; user: { id: string; email: string } }>(
           "/api/auth/signup",
           { method: "POST", body: JSON.stringify({ email, password }) }
         );
         setToken(data.token);
-        navigate("/dashboard");
+        navigate("/dashboard", { replace: true });
       }
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : "Something went wrong";
