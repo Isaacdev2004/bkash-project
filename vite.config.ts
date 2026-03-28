@@ -4,6 +4,8 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // Relative paths so the same build loads inside Capacitor (iOS / Android WebView)
+  base: "./",
   server: {
     // Listen on all addresses so http://localhost:8080 and http://127.0.0.1:8080 work
     host: true,

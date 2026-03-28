@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef, useCallback, type RefObject } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { executePaymentDeduped, getToken, type PaymentReceipt } from "@/lib/api";
+import { BrandMark } from "@/components/BrandMark";
 
 type Phase = "working" | "success" | "failed" | "auth" | "missing";
 
@@ -16,7 +17,7 @@ function ReceiptView({
     <div ref={printRef}>
       <div className="receipt-box border border-border rounded-xl p-6">
         <div className="text-center mb-4">
-          <p className="font-bold text-lg m-0">QuickPay</p>
+          <p className="font-bold text-lg m-0">Aurthayon</p>
           <p className="text-xs text-muted-foreground m-0 mt-0.5">Payment Receipt</p>
         </div>
         <hr className="border-dashed border-border my-4" />
@@ -56,7 +57,7 @@ function ReceiptView({
         </p>
         <hr className="border-dashed border-border my-4" />
         <p className="text-center text-[11px] text-muted-foreground m-0">Thank you for your payment</p>
-        <p className="text-center text-[11px] text-muted-foreground mt-1 m-0">Secured by bKash · QuickPay</p>
+        <p className="text-center text-[11px] text-muted-foreground mt-1 m-0">Secured by bKash · Aurthayon</p>
       </div>
     </div>
   );
@@ -135,12 +136,7 @@ const PaymentCallback = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <header className="px-4 py-3 flex items-center justify-between border-b border-border">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-sm">Q</span>
-          </div>
-          <span className="font-semibold text-foreground text-lg">QuickPay</span>
-        </div>
+        <BrandMark className="h-10 max-h-11 max-w-[min(100%,240px)]" />
       </header>
 
       <main className="flex-1 flex items-start justify-center px-4 py-8">

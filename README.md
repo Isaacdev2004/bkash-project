@@ -1,4 +1,4 @@
-# QuickPay
+# Aurthayon
 
 React (Vite) + Express + MongoDB + bKash tokenized checkout. The web app uses JWT auth from the API and completes payments via bKash redirect and server-side execute.
 
@@ -40,6 +40,10 @@ React (Vite) + Express + MongoDB + bKash tokenized checkout. The web app uses JW
    - API: [http://localhost:4000](http://localhost:4000) (`GET /health`)
 
 5. **Try it** — sign up, open **Make a Payment**, enter an amount, complete the redirect (mock or bKash), then confirm on `/pay/callback` and check the dashboard.
+
+## App Store & Google Play
+
+Same React app, wrapped with **Capacitor** for native listing. See [docs/MOBILE-STORES.md](docs/MOBILE-STORES.md) for `cap add`, signing, and `VITE_API_URL` for production builds. Place the client logo at `public/brand/aurthayon-logo.png`.
 
 ## Scripts
 

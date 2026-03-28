@@ -1,6 +1,7 @@
 import { useState, FormEvent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiFetch, getToken, setToken } from "@/lib/api";
+import { BrandMark } from "@/components/BrandMark";
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -51,11 +52,8 @@ const Auth = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <header className="px-4 py-3 flex items-center gap-2 border-b border-border">
-        <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-          <span className="text-primary-foreground font-bold text-sm">Q</span>
-        </div>
-        <span className="font-semibold text-foreground text-lg">QuickPay</span>
+      <header className="px-4 py-3 flex items-center border-b border-border">
+        <BrandMark className="h-10 max-h-12 max-w-[min(100%,280px)]" />
       </header>
 
       <main className="flex-1 flex items-center justify-center px-4 py-8">
@@ -64,7 +62,7 @@ const Auth = () => {
             {isLogin ? "Welcome back" : "Create account"}
           </h1>
           <p className="text-sm text-muted-foreground mb-6">
-            {isLogin ? "Sign in to your QuickPay account" : "Sign up to start making payments"}
+            {isLogin ? "Sign in to your Aurthayon account" : "Sign up to start making payments"}
           </p>
 
           <form onSubmit={onSubmit} className="space-y-4">

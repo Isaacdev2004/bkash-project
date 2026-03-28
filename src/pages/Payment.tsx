@@ -1,6 +1,7 @@
 import { useState, useCallback, FormEvent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiFetch, getToken } from "@/lib/api";
+import { BrandMark } from "@/components/BrandMark";
 
 type UiStatus = "idle" | "creating" | "error";
 
@@ -62,12 +63,7 @@ const Payment = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <header className="px-4 py-3 flex items-center justify-between border-b border-border">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-sm">Q</span>
-          </div>
-          <span className="font-semibold text-foreground text-lg">QuickPay</span>
-        </div>
+        <BrandMark className="h-10 max-h-11 max-w-[min(100%,240px)]" />
         <button type="button" onClick={() => navigate("/dashboard")} className="text-xs text-primary font-medium hover:underline">
           ← Dashboard
         </button>

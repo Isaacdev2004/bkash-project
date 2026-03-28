@@ -13,17 +13,18 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 15%;
 
-    --primary: 338 82% 48%;
+    /* Brand: emerald / teal (Aurthayon) */
+    --primary: 168 65% 38%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 338 20% 95%;
-    --secondary-foreground: 338 82% 48%;
+    --secondary: 168 22% 93%;
+    --secondary-foreground: 168 60% 28%;
 
     --muted: 0 0% 94%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 338 20% 95%;
-    --accent-foreground: 338 82% 40%;
+    --accent: 168 18% 93%;
+    --accent-foreground: 168 55% 26%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
@@ -36,7 +37,7 @@
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 338 82% 48%;
+    --ring: 168 65% 38%;
 
     --radius: 0.75rem;
   }
